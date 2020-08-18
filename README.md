@@ -65,7 +65,7 @@ The purpose of Cegal Tools Plotting is create a quick and easy way to QC well lo
               
     out:
  
-![Log viewer](https://github.com/cegaltools/cegaltools/images/cwp_plot_logs.png)            
+![Log viewer](https://github.com/cegaltools/cegaltools/tree/master/images/cwp_plot_logs.png)            
 
 
 <br><br>
@@ -74,7 +74,7 @@ The purpose of Cegal Tools Plotting is create a quick and easy way to QC well lo
 
     out:
 
-![correlation plot](https://github.com/cegaltools/cegaltools/images/cwp_correlation.png)
+![correlation plot](https://github.com/cegaltools/cegaltools/tree/master/images/cwp_correlation.png)
 
 <br><br>
 
@@ -82,7 +82,7 @@ The purpose of Cegal Tools Plotting is create a quick and easy way to QC well lo
 
     out: 
  
-![Coverage plot](https://github.com/cegaltools/cegaltools/images/cwp_plot_coverage.png)   
+![Coverage plot](https://github.com/cegaltools/cegaltools/tree/master/images/cwp_plot_coverage.png)   
 
 <br>
 
