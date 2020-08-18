@@ -31,6 +31,11 @@ Cegal well tool package; written by [Hilde Tveit Håland](https://www.linkedin.c
     
 License: BSD-3-Clause 
 
+
+
+Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/github/cegaltools/cegaltools/blob/master/Notebooks/Cegal%20Tools%20example%20notebook.ipynb) folder for more detailed examples 🍰
+
+
 <br><br>
 
 ### Content
@@ -42,7 +47,6 @@ License: BSD-3-Clause
  
  <br>
 
-Check out the Example notebooks in the Notebooks folder for more detailed examples 🍰
 
 <br><br>
 
@@ -155,7 +159,7 @@ The new curve should be passed as a tuple with the Well object id:
 > (Well_object.id, new_curve)
 
 
-    well_from_las.add_to_well((well_from_las.id, new_curve), log_name='this is a new curve')
+    well_from_las.add_to_well((well_from_las.id, new_curve), log_name='this_is_a_new_curve')
 
 
 <br><br>
@@ -166,4 +170,8 @@ The new curve should be passed as a tuple with the Well object id:
 
 To save the Well object with the added curve back to a las file we can simply call write_las on the object, while providing a name for the file to be written. The file will be saved in the current directory:
 
-    well_from_las.write_las(filename='our_edited_force_well')
+    well_from_las.write_las(filename='edited_well')
+    
+    
+Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/github/cegaltools/cegaltools/blob/master/Notebooks/Cegal%20Tools%20example%20notebook.ipynb) folder for more detailed examples 🍰
+
