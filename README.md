@@ -1,0 +1,28 @@
+
+<h1>Cegal well log tool</h1>
+
+
+
+Cegal well tool package written by Hilde Tveit Haland and Thomas Grant, Cegal ASA, May 2020.
+
+Based on open source tools such as plotly, pandas and lasio, the package allows for loading and visualising of well logs from las files.
+
+Several built in plotting methods provides an easy to use out of the box tool for handling well logs using python.
+    
+* self.report plots;
+    * histogram of well index increments
+    * log track of null value heatmaps for all loaded logs
+    * histograms of log values for all loaded logs
+    
+* self.plot_correlation;
+    * plots a correlation plot of all available logs
+    
+* self.plot_logs;
+    * Log viewer which accepts three types og well logs;
+        1) normal log tracks (parameter logs, string or list of strings)
+        2) lithology logs as heatmaps (parameter lithology_logs, string or list of strings) 
+        3) lithology probability logs as heatmaps (parameter lithology_proba_logs, string or list of strings)
+
+Planned extensions are simple editing tools for logs, including smoothing, splining and resampling.
+
+License: BSD-3-Clause
