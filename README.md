@@ -64,8 +64,8 @@ The purpose of Cegal Tools Plotting is create a quick and easy way to QC well lo
               lithology_proba_logs='lithology_probability')
               
     out:
-              
-<img src="https://github.com/cegaltools/cegaltools/images/cwp_plot_logs.png" alt="Drawing" style="width: 150px;">
+ 
+![Log viewer](https://github.com/cegaltools/cegaltools/images/cwp_plot_logs.png)            
 
 
 <br><br>
@@ -73,16 +73,16 @@ The purpose of Cegal Tools Plotting is create a quick and easy way to QC well lo
     cwp.plot_correlation(df=dataframe)
 
     out:
-    
-<img src="https://github.com/cegaltools/cegaltools/images/cwp_correlation.png" alt="Drawing" style="width: 150px;">
+
+![correlation plot](https://github.com/cegaltools/cegaltools/images/cwp_correlation.png)
 
 <br><br>
 
     cwp.plot_coverage(df=dataframe)
 
     out: 
-    
-<img src="https://github.com/cegaltools/cegaltools/images/cwp_plot_coverage.png" alt="Drawing" style="width: 150px;">
+ 
+![Coverage plot](https://github.com/cegaltools/cegaltools/images/cwp_plot_coverage.png)   
 
 <br>
 
