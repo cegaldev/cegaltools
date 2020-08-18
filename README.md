@@ -23,7 +23,10 @@
 
 
 
-Cegal well tool package; written by Hilde Tveit Håland & Thomas Bartholomew Grant, Cegal ASA, May 2020.
+Cegal well tool package; written by [Hilde Tveit Håland](https://www.linkedin.com/in/hilde-tveit-h%C3%A5land-216a267b
+) and [Thomas Bartholomew Grant](https://www.linkedin.com/in/thomas-bartholomew-grant-31b86359), Cegal ASA, August 2020.
+
+
     
     
 License: BSD-3-Clause 
