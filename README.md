@@ -42,6 +42,8 @@ License: BSD-3-Clause
  
  <br>
 
+Check out the Example notebooks in the Notebooks folder for more detailed examples 🍰
+
 <br><br>
 
 ## Using the well plotter from the Cegal Tools package
