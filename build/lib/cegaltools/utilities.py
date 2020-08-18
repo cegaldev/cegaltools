@@ -22,7 +22,7 @@ class Cegalutils():
                 new_name = ''.join([well.filename.split('.las')[0],
                                     '_v{}'.format(suffix)]) + '.las'
         else:
-            new_name = 'Lithofacies_webapp_output_{}.las'.format(str(datetime.datetime.now().date()))
+            new_name = 'well_log_output_{}.las'.format(str(datetime.datetime.now().date()))
             if new_path is not None:
                 joined = ''.join([new_path, new_name])
                 new_name = joined

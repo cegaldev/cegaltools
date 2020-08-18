@@ -30,17 +30,26 @@ class CegalWellPlotter:
                   lithology_description=None,
                   show_fig=True):
         '''
-        :param show_fig:
-        :param lithology_description:
         :param df: cegaltools log dataframe
         :param logs: list of logs to plot as line plots
+        :param log_scale_logs=None : list og logs to be plotted on a logartihmic scale
         :param lithology_logs: list of lithology logs to be plotted as heatmaps
         :param lithology_proba_logs: list of lithology probability logs to be plotted as black/grey heatmaps
-        :return: plotly plot
+        :param lithology_description: A dictionary containing name and color information for lithology logs
+        :param show_fig: show (True) or return (False) figure
+        :return: None
 
+        A lihtology description is a dictionary with lithology log values as keys and a tuples containing lithology
+        name and colour (Hex Code/html name):
+                lithology_value_3: ('lst', '#bb4cd0'),
 
-        Returns a cegaltools section of selected cegaltools logs as an interactive plotly figure, note that lithology_proba_logs
-        are colour scaled from 0-1, so values outside this range will not plot optimally.
+                example dict:
+                    lithology_dict = {
+                                        1.0: ('sand', '#e6e208'),
+                                        2.0: ('shale', '#0b8102'),
+                                        3.0: ('lst', 'Orange'),
+                                    }
+
         '''
 
         if logs is None:
@@ -277,6 +286,8 @@ class CegalWellPlotter:
 
         :param show_fig: returns plotly figure if set to False, shows figure if set to true (default True)
         :return:
+
+        Plot shows the inverse fraction of missing data, i.e data coverage for individual logs
         '''
 
         coverage_df = pd.DataFrame(1 - df.isna().sum() / len(df)).reset_index().rename(

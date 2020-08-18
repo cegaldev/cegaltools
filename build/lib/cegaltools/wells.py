@@ -42,9 +42,10 @@ class Well:
     def __init__(self, filename=None, path=None, from_dataframe=False, dataframe_name=None):
         '''
 
-        Lasio (https://github.com/kinverarity1/lasio) is used to read las files (future plan includes to add option to read from dlis format)
-        lasdata is saved both as the lasio.read() object and as a dataframe
-
+        :param filename: input filename
+        :param path: path to file
+        :param from_dataframe: Booelan value indicating if input data is from a pandas dataframe
+        :param dataframe_name: optional well name if pandas dataframe is source
         '''
         ## Read data from las file at specifiec path location, throw error if filename is not a string
         if not from_dataframe:
@@ -66,8 +67,10 @@ class Well:
 
         self.path = path if path is not None else ''
         self.filename = filename if type(filename) is str and filename is not None else None
-        self.well_object = lasio.read(os.path.join(path, filename)) if from_dataframe is False and filename.lower(
-        ).endswith('.las') else Cegalutils._create_well_object(dataframe=filename, dataframe_name=dataframe_name)
+        self.well_object = lasio.read(os.path.join(self.path, self.filename)) if from_dataframe is False and \
+                                                                              filename.lower(
+        ).endswith('.las') else Cegalutils._create_well_object(dataframe=self.filename,
+                                                               dataframe_name=dataframe_name)
         self.id = hashlib.sha224(json.dumps(self.df().to_dict()).encode('utf-8')).hexdigest()
 
     def df(self):
@@ -105,11 +108,13 @@ class Well:
         if not show_fig:
             return [fig1, fig2, fig3]
 
-    def plot_logs(self, logs=None, lithology_logs=None, lithology_proba_logs=None, lithology_description=None, show_fig=True):
+    def plot_logs(self, logs=None, log_scale_logs=None, lithology_logs=None, lithology_proba_logs=None,
+                  lithology_description=None, show_fig=True):
         '''
 
 
         :param logs: list of logs to plot as line plots
+        :param log_scale_logs=None : list og logs to be plotted on a logartihmic scale
         :param lithology_logs: list of lithology logs to be plotted as heatmaps
         :param lithology_proba_logs: list of lithology probability logs to be plotted as black/grey heatmaps
         :param lithology_description: A dictionary containing name and color information for lithology logs
@@ -130,9 +135,11 @@ class Well:
         '''
 
         if show_fig:
-            cwp.plot_logs(self.df(), logs, lithology_logs, lithology_proba_logs, lithology_description, show_fig=show_fig)
+            cwp.plot_logs(self.df(), logs, log_scale_logs, lithology_logs, lithology_proba_logs,
+                          lithology_description, show_fig=show_fig)
         else:
-            fig = cwp.plot_logs(self.df(), logs, lithology_logs, lithology_proba_logs, lithology_description, show_fig=show_fig)
+            fig = cwp.plot_logs(self.df(), logs, log_scale_logs, lithology_logs, lithology_proba_logs, \
+                  lithology_description, show_fig=show_fig)
             return fig
 
     def plot_correlation(self, show_fig=True):

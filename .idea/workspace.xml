@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="98b1115c-7577-4f60-8539-01caded6a129" name="Default Changelist" comment="" />
+    <list default="true" id="98b1115c-7577-4f60-8539-01caded6a129" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/cegaltools/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/cegaltools/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/cegaltools/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/cegaltools/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/cegaltools/wells.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/cegaltools/wells.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cegaltools/plotting.py" beforeDir="false" afterPath="$PROJECT_DIR$/cegaltools/plotting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cegaltools/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/cegaltools/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cegaltools/wells.py" beforeDir="false" afterPath="$PROJECT_DIR$/cegaltools/wells.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/cegaltools-0.0.1-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/cegaltools-0.0.1-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/cegaltools-0.0.1.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/cegaltools-0.0.1.tar.gz" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +37,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AzureDevOps/PythonProjects/cegal/subsurface/geoscience/cegaltools" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -85,10 +95,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="504" y="197" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1597655226058" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1597665354293">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1597771362524">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597665354293" />
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597771362524" />
     <state width="1509" height="196" key="GridCell.Tab.0.bottom" timestamp="1597310074442">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
