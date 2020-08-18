@@ -8,10 +8,10 @@ setuptools.setup(
     version="0.0.1",
     author="Hilde Haland",
     author_email="hilde.tveit.haland@gmail.com",
-    description="Cegal (asa) provided content log package",
+    description="Cegal (asa) provided cegaltools log package",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    #url="https://github.com/pypa/sampleproject",
+    url="https://github.com/cegaltools/cegaltools",
     packages=setuptools.find_namespace_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",

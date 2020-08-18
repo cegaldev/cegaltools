@@ -1,16 +1,16 @@
-from content.wells import Well
-from content.plotting import CegalWellPlotter as cwp
+from cegaltools.wells import Well
+from cegaltools.plotting import CegalWellPlotter as cwp
 import pandas as pd
 
-#from cegaltools.content.tools import Well
+#from cegaltools.cegaltools.tools import Well
 
 
 def main():
 
-    #content = Well(filename='15_9-F-14.LAS', path=r'C:\Users\hilde\Dev\Cegal Lab')
+    #cegaltools = Well(filename='15_9-F-14.LAS', path=r'C:\Users\hilde\Dev\Cegal Lab')
 
-    #content.report()
-    #content.plot_correlation()
+    #cegaltools.report()
+    #cegaltools.plot_correlation()
 
     train = pd.read_csv(r'C:\Users\hilde\Dev\force 2020 hackathon\train.csv', sep=';')
 

@@ -6,8 +6,8 @@ import math
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-# from cegaltools.content.utilities import Cegalutils
-from content.utilities import Cegalutils
+# from cegaltools.cegaltools.utilities import Cegalutils
+from cegaltools.utilities import Cegalutils
 
 
 class CegalWellPlotter:
@@ -32,14 +32,14 @@ class CegalWellPlotter:
         '''
         :param show_fig:
         :param lithology_description:
-        :param df: content log dataframe
+        :param df: cegaltools log dataframe
         :param logs: list of logs to plot as line plots
         :param lithology_logs: list of lithology logs to be plotted as heatmaps
         :param lithology_proba_logs: list of lithology probability logs to be plotted as black/grey heatmaps
         :return: plotly plot
 
 
-        Returns a content section of selected content logs as an interactive plotly figure, note that lithology_proba_logs
+        Returns a cegaltools section of selected cegaltools logs as an interactive plotly figure, note that lithology_proba_logs
         are colour scaled from 0-1, so values outside this range will not plot optimally.
         '''
 
@@ -152,7 +152,7 @@ class CegalWellPlotter:
 
         :return: None
 
-        Creates plotly correlation plot of all present content logs
+        Creates plotly correlation plot of all present cegaltools logs
 
         '''
         temp_df = df.corr().dropna(how='all', axis=0).dropna(how='all', axis=1)
@@ -226,7 +226,7 @@ class CegalWellPlotter:
                           xaxis_title_text='increment value',
                           title={
                               'text': '<b>Histogram of index increments</b>' +
-                                      ' <br><br>With varying values for index increments the content logs' +
+                                      ' <br><br>With varying values for index increments the cegaltools logs' +
                                       '<br>should be further QCed or resampled before being used.' +
                                       '<br><br><i> - Use toolbar in top right corner to navigate the plot.',
                               'y': 0.9,
@@ -255,8 +255,8 @@ class CegalWellPlotter:
             height=800,
             margin=dict(t=320),
             title={
-                'text': '<br><br><b>Non-missing values for content logs</b>' +
-                        ' <br><br>Present datapoints in content logs are visualized below,' +
+                'text': '<br><br><b>Non-missing values for cegaltools logs</b>' +
+                        ' <br><br>Present datapoints in cegaltools logs are visualized below,' +
                         '<br>missing coloration means the datapoint is NULL.' +
                         '<br><br><i> - Use toolbar in top right corner to navigate the plot.',
                 'y': 0.9,
