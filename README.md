@@ -1,3 +1,5 @@
+![Cegal](https://github.com/cegaltools/cegaltools/blob/master/images/cegal_logo_rdme.png)
+
 <br>
 <br>
 
@@ -175,3 +177,4 @@ To save the Well object with the added curve back to a las file we can simply ca
     
 Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/github/cegaltools/cegaltools/blob/master/Notebooks/Cegal%20Tools%20example%20notebook.ipynb) folder for more detailed examples 🍰
 
+![Cegal](https://github.com/cegaltools/cegaltools/blob/master/images/base_banner.png)
