@@ -33,7 +33,7 @@ Cegal well tool package; written by [Hilde Tveit Håland](https://www.linkedin.c
     
 License: BSD-3-Clause 
 
-<br><br>
+<br>
 
 Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/github/cegaltools/cegaltools/blob/master/Notebooks/Cegal%20Tools%20example%20notebook.ipynb) folder for more detailed examples 🍰
 
