@@ -3,8 +3,8 @@
 <br>
 <br>
 
-<h1 style="text-align:center;"> Cegal Tools package <br> loading and visualising well log data</h1>
-<h4 style="text-align:center;"> An geoscience tool for loading, plotting and evaluating well log data using python 🐍</h4>
+<h1 style="text-align:center;"> Cegal Tools package <br>  - Loading and Visualising well log data</h1>
+<h4 style="text-align:center;"> A geoscience tool for loading, plotting and evaluating well log data using python 🐍</h4>
 
 <br><br>
     
