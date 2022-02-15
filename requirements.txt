@@ -4,3 +4,4 @@ lasio>=0.25.1
 pandas>=1.0.3
 plotly>=4.6.0
 numpy>=1.18.0
+pytest
