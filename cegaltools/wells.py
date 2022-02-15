@@ -53,7 +53,7 @@ class Well:
                 raise ValueError('To create cegaltools from a pandas dataframe or numpy array set "from_dataframe" to True')
             if type(filename) is str:
                 try:
-                    assert filename.lower().endswith('.las') or filename.lower().endswith('.csv')
+                    assert filename.lower().endswith('.las')
                 except AssertionError:
                     raise (AssertionError('Filename not valid, input must be a las-file with extension .las'))
         else:
@@ -66,7 +66,10 @@ class Well:
                                  '"from_dataframe" to False and pass a .las file to create a Well object')
 
         self.path = path if path is not None else ''
-        self.filename = filename if type(filename) is str and filename is not None else None
+        if not from_dataframe:
+            self.filename = filename if type(filename) is str and filename is not None else None
+        else:
+            self.filename = filename if type(filename) is pd.core.frame.DataFrame and filename is not None else None
         self.well_object = lasio.read(os.path.join(self.path, self.filename)) if from_dataframe is False and \
                                                                               filename.lower(
         ).endswith('.las') else Cegalutils._create_well_object(dataframe=self.filename,
@@ -209,6 +212,3 @@ class Well:
         with open(filename, 'w') as fp:
             pass
         self.well_object.write(filename)
-
-
-
