@@ -1,7 +1,7 @@
 # Copyright Cegal AS 2022
 # For license terms, see LICENSE
 
-__author__ = 'hilde haland'
+__author__ = "hilde haland"
 
 import os
 from colour import Color
@@ -13,27 +13,33 @@ import pandas
 import lasio
 
 
-class Cegalutils():
-
+class Cegalutils:
     def _create_unique_name_at_save_location(well, new_path=None):
 
         if well.filename is not None:
             suffix = 2
-            new_name = ''.join([well.filename.split('.las')[0], '_v{}'.format(suffix)]) + '.las'
+            new_name = (
+                "".join([well.filename.split(".las")[0], "_v{}".format(suffix)])
+                + ".las"
+            )
             while new_name in os.listdir(well.path):
                 suffix += 1
-                new_name = ''.join([well.filename.split('.las')[0],
-                                    '_v{}'.format(suffix)]) + '.las'
+                new_name = (
+                    "".join([well.filename.split(".las")[0], "_v{}".format(suffix)])
+                    + ".las"
+                )
         else:
-            new_name = 'well_log_output_{}.las'.format(str(datetime.datetime.now().date()))
+            new_name = "well_log_output_{}.las".format(
+                str(datetime.datetime.now().date())
+            )
             if new_path is not None:
-                joined = ''.join([new_path, new_name])
+                joined = "".join([new_path, new_name])
                 new_name = joined
         return new_name
 
     def _replace_none(x):
         if x is None:
-            return ''
+            return ""
         else:
             return x
 
@@ -49,7 +55,7 @@ class Cegalutils():
     def _global_colorscheme():
         colorscheme = []
         for color in px.colors.qualitative.Vivid:
-            rgb_string = re.findall(r'\d+', color)
+            rgb_string = re.findall(r"\d+", color)
             rgb_tuple = tuple(int(i) for i in rgb_string)
             colorscheme.append(rgb2hex(rgb_tuple)[:7])
         return colorscheme
@@ -58,15 +64,33 @@ class Cegalutils():
         colorscheme = Cegalutils._global_colorscheme()
         local_colorscheme = []
         for i in range(9):
-            local_colorscheme.extend([x.hex for x in list(
-                Color(colorscheme[i]).range_to(Color(colorscheme[i + 1]), (len(lith_log.unique()) // 10) + 1))][:-1])
+            local_colorscheme.extend(
+                [
+                    x.hex
+                    for x in list(
+                        Color(colorscheme[i]).range_to(
+                            Color(colorscheme[i + 1]),
+                            (len(lith_log.unique()) // 10) + 1,
+                        )
+                    )
+                ][:-1]
+            )
         for i in range(9, 10):
-            local_colorscheme.extend([x.hex for x in list(Color(colorscheme[i]).range_to(Color(colorscheme[i + 1]), len(
-                lith_log.unique()) // 10 + len(lith_log.unique()) % 10))])
+            local_colorscheme.extend(
+                [
+                    x.hex
+                    for x in list(
+                        Color(colorscheme[i]).range_to(
+                            Color(colorscheme[i + 1]),
+                            len(lith_log.unique()) // 10 + len(lith_log.unique()) % 10,
+                        )
+                    )
+                ]
+            )
         return local_colorscheme
 
     def create_lith_PROBA_log_colorscheme(color):
-        return [x.hex for x in list(Color('lightgrey').range_to(Color(color), 50))]
+        return [x.hex for x in list(Color("lightgrey").range_to(Color(color), 50))]
 
     def assert_input(input, type, error):
         """
@@ -96,10 +120,10 @@ class Cegalutils():
         isinstance(dataframe, pandas.core.frame.DataFrame)
 
         las = lasio.LASFile()
-        las.well.DATE = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
+        las.well.DATE = datetime.datetime.today().strftime("%Y-%m-%d %H:%M:%S")
         if dataframe_name:
             las.well.WELL = dataframe_name
         for curve in dataframe.columns:
-            las.add_curve(curve, dataframe[curve], unit='')
+            las.add_curve(curve, dataframe[curve], unit="")
 
         return las
