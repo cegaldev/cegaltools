@@ -1,22 +1,23 @@
 # Copyright Cegal AS 2022
 # For license terms, see LICENSE
 
-__author__ = 'hildehaland'
+__author__ = "hildehaland"
 
 import lasio
 import os
 import hashlib
 import pandas as pd
 import json
-#from cegaltools.cegaltools.utilities import Cegalutils
-#from cegaltools.cegaltools.plotting import CegalWellPlotter as cwp
+
+# from cegaltools.cegaltools.utilities import Cegalutils
+# from cegaltools.cegaltools.plotting import CegalWellPlotter as cwp
 from cegaltools.utilities import Cegalutils
 from cegaltools.plotting import CegalWellPlotter as cwp
 
 
 class Well:
 
-    '''
+    """
     The purpose of this tool is to provide an easy go-to solution for plotting of cegaltools logs.
     The tool was built to accept .las files as cegaltools inout but has been edited to accept a dataframe as input for use
     in the Force 2020 Machine Learning hackathon.
@@ -41,49 +42,73 @@ class Well:
      add_to_well() - allows you to add a derived cegaltools log to you Well object
      write_las() - writes a las file of the current object to disk
 
-    '''
-    def __init__(self, filename=None, path=None, from_dataframe=False, dataframe_name=None):
-        '''
+    """
+
+    def __init__(
+        self, filename=None, path=None, from_dataframe=False, dataframe_name=None
+    ):
+        """
 
         :param filename: input filename
         :param path: path to file
         :param from_dataframe: Booelan value indicating if input data is from a pandas dataframe
         :param dataframe_name: optional well name if pandas dataframe is source
-        '''
+        """
         ## Read data from las file at specifiec path location, throw error if filename is not a string
         if not from_dataframe:
-            if (type(filename) == pd.core.frame.DataFrame):
-                raise ValueError('To create cegaltools from a pandas dataframe or numpy array set "from_dataframe" to True')
+            if type(filename) == pd.core.frame.DataFrame:
+                raise ValueError(
+                    'To create cegaltools from a pandas dataframe or numpy array set "from_dataframe" to True'
+                )
             if type(filename) is str:
                 try:
-                    assert filename.lower().endswith('.las')
+                    assert filename.lower().endswith(".las")
                 except AssertionError:
-                    raise (AssertionError('Filename not valid, input must be a las-file with extension .las'))
+                    raise (
+                        AssertionError(
+                            "Filename not valid, input must be a las-file with extension .las"
+                        )
+                    )
         else:
             try:
                 assert type(filename) == pd.core.frame.DataFrame
-                print('Well objects will assume the first dataframe column as depth curve, please assert that the '
-                      'passed dataframe has the correct column order')
+                print(
+                    "Well objects will assume the first dataframe column as depth curve, please assert that the "
+                    "passed dataframe has the correct column order"
+                )
             except ValueError:
-                raise ValueError('Input data type is not accepted. Pass a pandas dataframe or set parameter '
-                                 '"from_dataframe" to False and pass a .las file to create a Well object')
+                raise ValueError(
+                    "Input data type is not accepted. Pass a pandas dataframe or set parameter "
+                    '"from_dataframe" to False and pass a .las file to create a Well object'
+                )
 
-        self.path = path if path is not None else ''
+        self.path = path if path is not None else ""
         if not from_dataframe:
-            self.filename = filename if type(filename) is str and filename is not None else None
+            self.filename = (
+                filename if type(filename) is str and filename is not None else None
+            )
         else:
-            self.filename = filename if type(filename) is pd.core.frame.DataFrame and filename is not None else None
-        self.well_object = lasio.read(os.path.join(self.path, self.filename)) if from_dataframe is False and \
-                                                                              filename.lower(
-        ).endswith('.las') else Cegalutils._create_well_object(dataframe=self.filename,
-                                                               dataframe_name=dataframe_name)
-        self.id = hashlib.sha224(json.dumps(self.df().to_dict()).encode('utf-8')).hexdigest()
+            self.filename = (
+                filename
+                if type(filename) is pd.core.frame.DataFrame and filename is not None
+                else None
+            )
+        self.well_object = (
+            lasio.read(os.path.join(self.path, self.filename))
+            if from_dataframe is False and filename.lower().endswith(".las")
+            else Cegalutils._create_well_object(
+                dataframe=self.filename, dataframe_name=dataframe_name
+            )
+        )
+        self.id = hashlib.sha224(
+            json.dumps(self.df().to_dict()).encode("utf-8")
+        ).hexdigest()
 
     def df(self):
-        '''
+        """
 
         :return: pandas.DataFrame containing cegaltools logs from las file
-        '''
+        """
         return self.well_object.df()
 
     def report(self, show_fig=True):
@@ -114,9 +139,16 @@ class Well:
         if not show_fig:
             return [fig1, fig2, fig3]
 
-    def plot_logs(self, logs=None, log_scale_logs=None, lithology_logs=None, lithology_proba_logs=None,
-                  lithology_description=None, show_fig=True):
-        '''
+    def plot_logs(
+        self,
+        logs=None,
+        log_scale_logs=None,
+        lithology_logs=None,
+        lithology_proba_logs=None,
+        lithology_description=None,
+        show_fig=True,
+    ):
+        """
 
 
         :param logs: list of logs to plot as line plots
@@ -138,22 +170,36 @@ class Well:
                                         3.0: ('lst', 'Orange'),
                                     }
 
-        '''
+        """
 
         if show_fig:
-            cwp.plot_logs(self.df(), logs, log_scale_logs, lithology_logs, lithology_proba_logs,
-                          lithology_description, show_fig=show_fig)
+            cwp.plot_logs(
+                self.df(),
+                logs,
+                log_scale_logs,
+                lithology_logs,
+                lithology_proba_logs,
+                lithology_description,
+                show_fig=show_fig,
+            )
         else:
-            fig = cwp.plot_logs(self.df(), logs, log_scale_logs, lithology_logs, lithology_proba_logs, \
-                  lithology_description, show_fig=show_fig)
+            fig = cwp.plot_logs(
+                self.df(),
+                logs,
+                log_scale_logs,
+                lithology_logs,
+                lithology_proba_logs,
+                lithology_description,
+                show_fig=show_fig,
+            )
             return fig
 
     def plot_correlation(self, show_fig=True):
-        '''
+        """
 
 
         :return: None
-        '''
+        """
 
         if show_fig:
             cwp.plot_correlation(self.df(), show_fig=show_fig)
@@ -161,20 +207,21 @@ class Well:
             fig = cwp.plot_correlation(self.df(), show_fig=show_fig)
             return fig
 
-
     def plot_coverage(self, show_fig=True):
-        '''
+        """
 
         :param show_fig:
         :return:
-        '''
+        """
         if show_fig:
             cwp.plot_coverage(self.df(), show_fig=show_fig)
         else:
             fig = cwp.plot_coverage(self.df(), show_fig=show_fig)
             return fig
 
-    def add_to_well(self, log_series, log_name='lithology', descr='added lithology log', unit='unit'):
+    def add_to_well(
+        self, log_series, log_name="lithology", descr="added lithology log", unit="unit"
+    ):
         """
         ;param log_series: tuple containing self.id for the cegaltools and pandas series of values (cegaltools.id, pd.Series)
         :param log_name: string containing lithology log name (defaults to lithology)
@@ -187,31 +234,49 @@ class Well:
             assert self.id == log_series[0]
 
             if isinstance(log_series[1], pd.Series):
-                self.well_object.insert_curve(ix=len(self.well_object.df().columns) + 1, mnemonic=log_name,
-                                              data=log_series[1], unit=unit, descr=descr)
+                self.well_object.insert_curve(
+                    ix=len(self.well_object.df().columns) + 1,
+                    mnemonic=log_name,
+                    data=log_series[1],
+                    unit=unit,
+                    descr=descr,
+                )
             elif isinstance(log_series[1], pd.DataFrame):
-                for col in [x for x in log_series[1].columns if x not in self.df().columns]:
-                    self.well_object.insert_curve(ix=len(self.well_object.df().columns) + 1,
-                                                  mnemonic='{}_{}'.format(col,
-                                                  log_name) if 'proba' in col else '{}_description'.format(log_name)
-                                                  if 'description' in col else log_name,
-                                                  data=log_series[1][col], unit=unit, descr=descr)
+                for col in [
+                    x for x in log_series[1].columns if x not in self.df().columns
+                ]:
+                    self.well_object.insert_curve(
+                        ix=len(self.well_object.df().columns) + 1,
+                        mnemonic="{}_{}".format(col, log_name)
+                        if "proba" in col
+                        else "{}_description".format(log_name)
+                        if "description" in col
+                        else log_name,
+                        data=log_series[1][col],
+                        unit=unit,
+                        descr=descr,
+                    )
         except AssertionError:
             raise AssertionError(
-                'Logs can only be added to the cegaltools.tools.Well object it was created from. '
-                'Please attach new log_series to the appropriate cegaltools.tools.Well object.')
+                "Logs can only be added to the cegaltools.tools.Well object it was created from. "
+                "Please attach new log_series to the appropriate cegaltools.tools.Well object."
+            )
 
     def write_las(self, filename=None):
-        '''
+        """
 
         :param filename: User can add the output name of the file, this is required for a pandas input cegaltools
         :return:
-        '''
+        """
         if filename is None:
-            filename = os.path.join(Cegalutils._replace_none(self.path),
-                                    Cegalutils._create_unique_name_at_save_location(self))
+            filename = os.path.join(
+                Cegalutils._replace_none(self.path),
+                Cegalutils._create_unique_name_at_save_location(self),
+            )
         else:
-            filename = os.path.join(Cegalutils._replace_none(self.path), filename + '.las')
-        with open(filename, 'w') as fp:
+            filename = os.path.join(
+                Cegalutils._replace_none(self.path), filename + ".las"
+            )
+        with open(filename, "w") as fp:
             pass
         self.well_object.write(filename)
