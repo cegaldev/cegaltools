@@ -1,3 +1,6 @@
+# Copyright Cegal AS 2022
+# For license terms, see LICENSE
+
 __author__ = 'hilde haland'
 
 import os
@@ -100,4 +103,3 @@ class Cegalutils():
             las.add_curve(curve, dataframe[curve], unit='')
 
         return las
-

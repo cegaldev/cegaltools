@@ -1,3 +1,6 @@
+# Copyright Cegal AS 2022
+# For license terms, see LICENSE
+
 __author__ = 'hildehaland'
 
 import lasio

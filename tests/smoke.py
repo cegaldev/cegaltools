@@ -1,3 +1,7 @@
+# Copyright Cegal AS 2022
+# For license terms, see LICENSE
+
+
 import pandas as pd
 
 from cegaltools.wells import Well

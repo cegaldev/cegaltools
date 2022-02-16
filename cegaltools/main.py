@@ -1,3 +1,6 @@
+# Copyright Cegal AS 2022
+# For license terms, see LICENSE
+
 from cegaltools.wells import Well
 from cegaltools.plotting import CegalWellPlotter as cwp
 import pandas as pd
