@@ -11,7 +11,7 @@ setuptools.setup(
     description="Cegal (asa) provided cegaltools log package",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/cegaltools/cegaltools",
+    url="https://github.com/cegaldev/cegaltools",
     packages=setuptools.find_namespace_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
