@@ -8,11 +8,8 @@ import os
 import hashlib
 import pandas as pd
 import json
-
-# from cegaltools.cegaltools.utilities import Cegalutils
-# from cegaltools.cegaltools.plotting import CegalWellPlotter as cwp
-from cegaltools.utilities import Cegalutils
-from cegaltools.plotting import CegalWellPlotter as cwp
+from cegal.welltools.utilities import Cegalutils
+from cegal.welltools.plotting import CegalWellPlotter as cwp
 
 
 class Well:

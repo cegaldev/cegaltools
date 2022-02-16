@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="cegaltools",  # Replace with your own username
+    name="cegal-welltools",
     version="0.0.1",
     author="Hilde Haland",
     author_email="hilde.tveit.haland@gmail.com",
