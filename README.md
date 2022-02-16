@@ -7,18 +7,18 @@
 <h4 style="text-align:center;"> A geoscience tool for loading, plotting and evaluating well log data using python 🐍</h4>
 
 <br><br>
-    
 
-    
+
+
 <br>
 
 
-> The Cegal Tools package aims to minimize time and effort for a geoscientist wanting to work with well logs using python.
+> The Cegal WellTools package aims to minimize time and effort for a geoscientist wanting to work with well logs using python.
 
 
 > Based on open source tools such as plotly, pandas and lasio, Cegal Tools allow for simple loading, manipulation and visualising of well logs from las files.
 
-    
+
 > Several built in plotting methods provides an easy to use, out of the box well log tool for geoscientists using or wanting to learn python.
 
 <br><br>
@@ -29,9 +29,9 @@ Cegal well tool package; written by [Hilde Tveit Håland](https://www.linkedin.c
 ) and [Thomas Bartholomew Grant](https://www.linkedin.com/in/thomas-bartholomew-grant-31b86359), Cegal ASA, August 2020.
 
 
-    
-    
-License: BSD-3-Clause 
+
+
+License: BSD-3-Clause
 
 <br>
 
@@ -42,11 +42,11 @@ Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/
 
 ### Content
 
- * [Using the well plotter from the Cegal Tools package](#Using-the-well-plotter-from-the-Cegal-Tools-package) 
+ * [Using the well plotter from the Cegal Tools package](#Using-the-well-plotter-from-the-Cegal-Tools-package)
  * [Creating a Well object using the Cegal Tools](#Creating-a-Well-object-using-the-Cegal-Tools)
- * [Built in plots for the Well object](#Built-in-plots-for-the-Well-object) 
+ * [Built in plots for the Well object](#Built-in-plots-for-the-Well-object)
  * [Adding logs and writing Well object as las file](#Adding-logs-and-writing-Well-object-as-las-file)
- 
+
  <br>
 
 
@@ -58,25 +58,25 @@ Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/
 
 Installing cegal tools package:
 
-* **!pip install cegaltools**
+* **!pip install cegal.welltools**
 
 
 
-The purpose of Cegal Tools Plotting is create a quick and easy way to QC well logs in a jupyter notebook. It's built using plotly, so run in a different IDEs html plots will launch in your default browser. 
+The purpose of Cegal Tools Plotting is create a quick and easy way to QC well logs in a jupyter notebook. It's built using plotly, so run in a different IDEs html plots will launch in your default browser.
 
-<br><br>    
+<br><br>
 
     from cegaltools.plotting import CegalWellPlotter as cwp
-    
-    cwp.plot_logs(df=dataframe, 
-              logs=['gammaray','density', 'porosity'], 
+
+    cwp.plot_logs(df=dataframe,
+              logs=['gammaray','density', 'porosity'],
               log_scale_logs='resistivity',
-              lithology_logs='lithology', 
+              lithology_logs='lithology',
               lithology_proba_logs='lithology_probability')
-              
+
     out:
- 
-![Log viewer](https://github.com/cegaltools/cegaltools/blob/master/images/cwp_plot_logs.png)            
+
+![Log viewer](https://github.com/cegaltools/cegaltools/blob/master/images/cwp_plot_logs.png)
 
 The four log options for cwp.plot_logs are:
 1. logs: logs to plot with normal scale
@@ -98,31 +98,31 @@ The four log options for cwp.plot_logs are:
 
     cwp.plot_coverage(df=dataframe)
 
-    out: 
- 
-![Coverage plot](https://github.com/cegaltools/cegaltools/blob/master/images/cwp_plot_coverage.png)   
+    out:
+
+![Coverage plot](https://github.com/cegaltools/cegaltools/blob/master/images/cwp_plot_coverage.png)
 
 <br><br>
 
 
 ## Creating a Well object using the Cegal Tools
 
-    from cegaltools.wells import Well
-    
+    from cegal.welltools import Well
+
 Create a Well object from las file:
 
     well_from_las = Well(filename='well_log.las', path='../path to file/')
-    
-If you have well log data as a dataframe you can create a Well object by passing the dataframe instead of a filename and setting there parameter from_dataframe to True. 
+
+If you have well log data as a dataframe you can create a Well object by passing the dataframe instead of a filename and setting there parameter from_dataframe to True.
 
 You also have the option of passing a well name, this will be added to the las file header values if you save the Well object to a las file:
-                    
+
     well_from_df = Well(filename=df, from_dataframe=True, dataframe_name='test_well')
-    
+
 Attributes on the Well object:
 
     well_from_las.__dict__
-    
+
     out:
     {'path': '',
      'filename': 'well_log.las',
@@ -132,8 +132,8 @@ Attributes on the Well object:
 Lasio is used to read the las file, by accessing the well_object attribute you can work with and edit the well log file as per the excellent [lasio project and documentation.](https://lasio.readthedocs.io/en/latest/basic-example.html)
 
 <br><br>
-   
-   
+
+
 
 ## Built in plots for the Well object
 
@@ -141,9 +141,9 @@ Lasio is used to read the las file, by accessing the well_object attribute you c
 The Cegal Well Plotter functions can be called as methods for the Well object:
 
     well_from_las.plot_logs()
-    
+
     well_from_las.plot_correlation()
-    
+
     well_from_las.plot_coverage()
 
 <br><br>
@@ -173,8 +173,8 @@ The new curve should be passed as a tuple with the Well object id:
 To save the Well object with the added curve back to a las file we can simply call write_las on the object, while providing a name for the file to be written. The file will be saved in the current directory:
 
     well_from_las.write_las(filename='edited_well')
-    
-    
+
+
 Check out the Example notebooks in the [Notebooks](https://nbviewer.jupyter.org/github/cegaltools/cegaltools/blob/master/Notebooks/Cegal%20Tools%20example%20notebook.ipynb) folder for more detailed examples 🍰
 
 <br><br>
