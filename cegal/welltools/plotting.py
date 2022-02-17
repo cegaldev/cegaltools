@@ -10,8 +10,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
-# from cegaltools.cegaltools.utilities import Cegalutils
-from cegaltools.utilities import Cegalutils
+from cegal.welltools.utilities import Cegalutils
 
 
 class CegalWellPlotter:

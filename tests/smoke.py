@@ -4,7 +4,7 @@
 
 import pandas as pd
 
-from cegaltools.wells import Well
+from cegal.welltools.wells import Well
 
 
 def test_well_from_las():
