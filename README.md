@@ -36,8 +36,7 @@ Installing cegal tools package:
 >  **!pip install cegal.welltools**
 
 
-
-The purpose of Cegal Tools Plotting is create a quick and easy way to QC well logs in a jupyter notebook. It's built using plotly, so run in a different IDEs html plots will launch in your default browser.
+The purpose of Cegal Welltools Plotting is create a quick and easy way to QC well logs in a jupyter notebook. It's built using plotly, so run in a different IDEs html plots will launch in your default browser.
 
 ```python
 from cegaltools.plotting import CegalWellPlotter as cwp
