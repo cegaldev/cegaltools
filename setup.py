@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cegal-welltools",
-    version="0.0.1",
+    version="0.1.0",
     author="Hilde Haland",
     author_email="hilde.tveit.haland@gmail.com",
     description="Cegal AS-provided well log package",
