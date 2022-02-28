@@ -3,3 +3,4 @@ __pycache__
 dist/
 cegaltools.egg-info/
 build/
+/cegal_welltools.egg-info/
