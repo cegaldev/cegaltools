@@ -8,7 +8,7 @@ setuptools.setup(
     version="0.0.1",
     author="Hilde Haland",
     author_email="hilde.tveit.haland@gmail.com",
-    description="Cegal (asa) provided cegaltools log package",
+    description="Cegal AS-provided well log package",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/cegaldev/cegaltools",
