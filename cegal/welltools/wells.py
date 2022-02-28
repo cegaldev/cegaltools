@@ -15,28 +15,28 @@ from cegal.welltools.plotting import CegalWellPlotter as cwp
 class Well:
 
     """
-    The purpose of this tool is to provide an easy go-to solution for plotting of cegaltools logs.
-    The tool was built to accept .las files as cegaltools inout but has been edited to accept a dataframe as input for use
+    The purpose of this tool is to provide an easy go-to solution for plotting of cegal.welltools logs.
+    The tool was built to accept .las files as cegal.wellstools inout but has been edited to accept a dataframe as input for use
     in the Force 2020 Machine Learning hackathon.
 
-    The tool uses lasio to create cegaltools objects that can add curves and write file to disk, please refer to lasio
+    The tool uses lasio to create cegal.welltools objects that can add curves and write file to disk, please refer to lasio
     documentation for more info (https://lasio.readthedocs.io/en/latest/).
 
     This package uses simpler syntax, but trades off customization options.
 
-    To create a cegaltools object from a dataframe pass the dataframe object to the "filename" parameter, instead of a
+    To create a cegal.welltools object from a dataframe pass the dataframe object to the "filename" parameter, instead of a
     string, and leave path at None. Set "from_dataframe" to True. By passing a string to the "dataframe_name"
-    parameter you can specify a cegaltools name added to the lasio object that will be created.
+    parameter you can specify a cegal.welltools name added to the lasio object that will be created.
 
     Methods for cegal Well object:
 
-     df() - returns cegaltools log data as a dataframe
-     report() - returns a cegaltools report consisting of three plots providing an overview of the cegaltools data,
+     df() - returns cegal.welltools log data as a dataframe
+     report() - returns a cegal.welltools report consisting of three plots providing an overview of the cegal.welltools data,
      refer to function for more information
-     plot_logs() - uses the cegal cegaltools plotter to return a log section of selected wells. It accepts line plot,
+     plot_logs() - uses the cegal.welltools plotter to return a log section of selected wells. It accepts line plot,
      lithology logs and lithology probability logs. You can also specify lithology colours using a lithology dictionary.
      plot_correlation() - returns a correlation plot of all logs with non-null values
-     add_to_well() - allows you to add a derived cegaltools log to you Well object
+     add_to_well() - allows you to add a derived cegal.welltools log to you Well object
      write_las() - writes a las file of the current object to disk
 
     """
@@ -55,7 +55,7 @@ class Well:
         if not from_dataframe:
             if type(filename) == pd.core.frame.DataFrame:
                 raise ValueError(
-                    'To create cegaltools from a pandas dataframe or numpy array set "from_dataframe" to True'
+                    'To create cegal.welltools from a pandas dataframe or numpy array set "from_dataframe" to True'
                 )
             if type(filename) is str:
                 try:
@@ -104,7 +104,7 @@ class Well:
     def df(self):
         """
 
-        :return: pandas.DataFrame containing cegaltools logs from las file
+        :return: pandas.DataFrame containing cegal.welltools logs from las file
         """
         return self.well_object.df()
 
@@ -220,7 +220,7 @@ class Well:
         self, log_series, log_name="lithology", descr="added lithology log", unit="unit"
     ):
         """
-        ;param log_series: tuple containing self.id for the cegaltools and pandas series of values (cegaltools.id, pd.Series)
+        ;param log_series: tuple containing self.id for the cegal.welltools and pandas series of values (cegaltools.id, pd.Series)
         :param log_name: string containing lithology log name (defaults to lithology)
         :param descr: log description (defaults to 'added lithology log')
         :return:
@@ -255,14 +255,14 @@ class Well:
                     )
         except AssertionError:
             raise AssertionError(
-                "Logs can only be added to the cegaltools.tools.Well object it was created from. "
-                "Please attach new log_series to the appropriate cegaltools.tools.Well object."
+                "Logs can only be added to the cegal.welltools.wells.Well object it was created from. "
+                "Please attach new log_series to the appropriate cegal.welltools.wells.Well object."
             )
 
     def write_las(self, filename=None):
         """
 
-        :param filename: User can add the output name of the file, this is required for a pandas input cegaltools
+        :param filename: User can add the output name of the file, this is required for a pandas input cegal.welltools
         :return:
         """
         if filename is None:
